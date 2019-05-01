@@ -51,8 +51,8 @@
                             <nav class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                     <li><a href="trangchu">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Courses</a></li>
+                                    <li><a href="#">Tests</a></li>
+                                    <li><a href="courses/{id}">Courses</a></li>
                                     <li><a href="student/info">Infor</a></li>
                                     <li><a href="#">Contact</a></li>
                                     <li><a href="#"></a></li>

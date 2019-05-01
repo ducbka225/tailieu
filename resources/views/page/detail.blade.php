@@ -32,7 +32,7 @@
             <div class="col-12 col-lg-8">
                 <div class="single-post-wrap">
                 	<p  align="justify" > 
-                		{{$post->content}}
+                		{{$post->subcontent}}
                 	</p>
                     
                 </div><!-- .single-post-wrap -->
@@ -116,18 +116,39 @@
 
                     <div class="comments-form">
                         <div class="comment-respond">
-                            <h3 class="comment-reply-title">Leave a comment</h3>
+                            <h3 class="comment-reply-title"></h3>
+                           
 
-                            <form class="comment-form">
-                                <input type="text" placeholder="Name">
+                            <form class="comment-form" method="post" action="comment_post/{{$post->id}}" role="form" >
+                                 {!!csrf_field()!!}
+                                <textarea class="form-control" rows="3" name="commentpost"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Gửi</button>
+                                <!-- <input type="text" placeholder="Name">
                                 <input type="email" placeholder="Email">
                                 <input type="url" placeholder="Website">
                                 <textarea rows="4" placeholder="Messages"></textarea>
-                                <input type="submit" value="send message">
+                                <input type="submit" value="send message"> -->
                             </form><!-- .comment-form -->
                         </div><!-- .comment-respond -->
                     </div><!-- .comments-form -->
+                    <div class="discussion-comment">
+                            <ul>
+                                @foreach($comment as $cm)
+                                <li>
+                                    <div class="comment-text1">
+                                        <div class="text">
+                                            <strong>{{$cm->user->name}}</strong> <small>{{$cm->created_at}}</small>
+                                            <p>{{$cm->content}}</p> 
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach 
+                            </ul>
+                        </div>
+
                 </div><!-- .post-comments-wrap -->
+                
             </div><!-- .col -->
         </div><!-- .row -->
     </div><!-- .container -->

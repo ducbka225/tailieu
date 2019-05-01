@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\User;
 use App\Post;
+use App\Comment;
+use App\Course;
 use Auth;
+use App\Test;
+use App\Test_result;
 
 class PageController extends Controller
 {
@@ -86,7 +91,50 @@ class PageController extends Controller
 
     public function getDetails($id){
     	$post = Post::find($id);
-    	return view('page.detail', compact('post'));
+        $comment=Comment::where('id_post',$id)->get();
+    	return view('page.detail', compact('post','comment'));
+    }
+
+    //all khoa hoc
+   public function getcourses(){
+        $course = Course::all();
+        return view('page.course', compact('course'));
+    }
+
+    public function gettest($course_id){
+        $test_course = Test::where('id_course',$course_id)->get();
+        return view('page.test', compact('test_course','course_id'));
+    }
+
+    public function result($course_id,Request $req)
+    {
+
+        $test_result = new Test_result;
+        foreach ($test_result as $test_result){
+
+
+        $test_result->answer=$req ->a;
+
+        }
+        // foreach ($test_results as $test_result)
+        // $test_result->answer = $req->answer;
+        // if($req==$test->true)
+        //  {
+        //    echo('đúng câu này');
+        //  }
+        // else echo('sai');
+        $test_result->save();
+      
+
+        return view('page.result',compact('test_result','course_id'));
+    }
+    
+
+    public function post($course_id)
+    {
+        $post_course= Post::where('id_course',$course_id)->get();
+        return view('page.post_course',compact('post_course'));
+
     }
 
     public function getStudentInfo(){
@@ -131,12 +179,12 @@ class PageController extends Controller
         return redirect()->back()->with('message', 'Cập Nhật Thành Công!');
     }
 
-    public function getUpdateInfo(){
-        $id = Auth::user()->id;
-        $user = User::find($id);
+    // public function getUpdateInfo(){
+    //     $id = Auth::user()->id;
+    //     $user = User::find($id);
 
-        return view('page.update_info', compact('user'));
-    }
+    //     return view('page.update_info', compact('user'));
+    // }
 
     public function getChangePassword(){
         $id = Auth::user()->id;
