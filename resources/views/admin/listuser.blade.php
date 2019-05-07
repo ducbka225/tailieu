@@ -44,7 +44,7 @@
                                     @endif
                                     
                                 </td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/deleteuser/{{$us->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/deleteuser/{{$us->id}}"> Delete</a></td>
 
                             </tr>
                             @endforeach

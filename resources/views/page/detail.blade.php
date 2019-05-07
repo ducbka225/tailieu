@@ -32,7 +32,7 @@
             <div class="col-12 col-lg-8">
                 <div class="single-post-wrap">
                 	<p  align="justify" > 
-                		{{$post->subcontent}}
+                		{!!$post->content!!}
                 	</p>
                     
                 </div><!-- .single-post-wrap -->
@@ -53,37 +53,8 @@
 
                         <ol class="comment-list">
                             <li class="comment">
-                                <article class="comment-body">
-                                    <figure class="comment-author-avatar">
-                                        <img src="images/c-1.png" alt="">
-                                    </figure><!-- .comment-author-avatar -->
-
-                                    <div class="comment-wrap">
-                                        <div class="comment-author">
-                                            <span class="comment-meta d-block">
-                                                <a href="#">27 Aug 2018</a>
-                                            </span><!-- .comment-meta -->
-
-                                            <span class="fn">
-                                                <a href="#">Bk</a>
-                                            </span><!-- .fn -->
-                                        </div><!-- .comment-author -->
-
-                                        <p>Hay quá</p>
-
-                                        <div class="reply">
-                                            <a href="#">like</a>
-                                            <a href="#">reply</a>
-                                        </div><!-- .reply -->
-                                    </div><!-- .comment-wrap -->
-
-                                    <div class="clearfix"></div>
-                                </article><!-- .comment-body -->
-
-                                <!-- -->
-                            </li><!-- .comment -->
-
-                            <li class="comment">
+                                  @foreach($comment as $cm)
+                               
                                 <article class="comment-body">
                                     <figure class="comment-author-avatar">
                                         <img src="images/c-3.png" alt="">
@@ -92,15 +63,15 @@
                                     <div class="comment-wrap">
                                         <div class="comment-author">
                                             <span class="comment-meta d-block">
-                                                <a href="#">27 Aug 2018</a>
+                                                <a href="#">{{$cm->created_at}}</a>
                                             </span><!-- .comment-meta -->
 
                                             <span class="fn">
-                                                <a href="#">Đức</a>
+                                                <a href="#">{{$cm->user->name}}</a>
                                             </span><!-- .comment-autho -->
                                         </div><!-- .comment-author -->
 
-                                        <p>Rất hữu ích cảm ơn mod very nhiều </p>
+                                        <p>{{$cm->content}}</p>
 
                                         <div class="reply">
                                             <a href="#">like</a>
@@ -110,6 +81,7 @@
 
                                     <div class="clearfix"></div>
                                 </article><!-- .comment-body -->
+                                 @endforeach 
                             </li><!-- .comment -->
                         </ol><!-- .comment-list -->
                     </div><!-- .post-comments -->
@@ -132,20 +104,7 @@
                             </form><!-- .comment-form -->
                         </div><!-- .comment-respond -->
                     </div><!-- .comments-form -->
-                    <div class="discussion-comment">
-                            <ul>
-                                @foreach($comment as $cm)
-                                <li>
-                                    <div class="comment-text1">
-                                        <div class="text">
-                                            <strong>{{$cm->user->name}}</strong> <small>{{$cm->created_at}}</small>
-                                            <p>{{$cm->content}}</p> 
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach 
-                            </ul>
-                        </div>
+                  
 
                 </div><!-- .post-comments-wrap -->
                 

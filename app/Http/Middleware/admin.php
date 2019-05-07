@@ -18,7 +18,7 @@ class admin
     {
         if(Auth::check()){
             $user = Auth::user();
-            if($user->role == 2){
+            if($user->role == 1){
                 return $next($request);
             }
             else{

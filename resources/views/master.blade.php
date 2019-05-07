@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="ezuca/style.css">
 </head>
 <body>
-    @include('header')
 
+    @include('header')
     @yield('content')
 
  	@include('footer')

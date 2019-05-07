@@ -1,4 +1,4 @@
-<div class="hero-content">
+
         <header class="site-header">
             <div class="top-header-bar">
                 <div class="container-fluid">
@@ -38,7 +38,7 @@
                 </div><!-- .container-fluid -->
             </div><!-- .top-header-bar -->
 
-            <div class="nav-bar">
+          
                 <div class="container">
                     <div class="row">
                         <div class="col-9 col-lg-3">
@@ -50,12 +50,12 @@
                         <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
                             <nav class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                                    <li><a href="trangchu">Home</a></li>
-                                    <li><a href="#">Tests</a></li>
-                                    <li><a href="courses/{id}">Courses</a></li>
-                                    <li><a href="student/info">Infor</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#"></a></li>
+                                    <li ><a href="trangchu">Trang chủ</a></li>
+                                    <li ><a href="#">Blog chia sẻ</a></li>
+                                    <li ><a href="courses/{id}">Khóa học</a></li>
+                                    <li ><a href="student/info">Thông tin cá nhân</a></li>
+                                    <li ><a href="#">Liên hệ</a></li>
+                                   
                                 </ul>
 
                                 <div class="hamburger-menu d-lg-none">
@@ -72,8 +72,9 @@
                         </div><!-- .col -->
                     </div><!-- .row -->
                 </div><!-- .container -->
-            </div><!-- .nav-bar -->
+            
         </header><!-- .site-header -->
+        
 
         <div class="hero-content-overlay">
             <div class="container">
@@ -86,4 +87,3 @@
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .hero-content-hero-content-overlay -->
-    </div><!-- .hero-content -->

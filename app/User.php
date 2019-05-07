@@ -43,6 +43,16 @@ class User extends Authenticatable
     }
 
     public function comment(){
-        return $this->hasMany('App\Comment', 'id_lesson', 'id');
+        return $this->hasMany('App\Comment', 'id_user', 'id');
+    }
+
+     public function repcomment(){
+        return $this->hasMany('App\Repcomment', 'id_user', 'id');
+    }
+     public function test(){
+        return $this->hasMany('App\Test','id_user','id');
+    }
+    public function score(){
+        return $this->hasOne('App\Score','id_user','id');
     }
 }

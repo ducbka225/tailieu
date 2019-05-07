@@ -22,5 +22,11 @@ class Course extends Model
     public function comment(){
     	return $this->hasMany('App\Comment', 'id_course', 'id');
     }
+    public function test(){
+        return $this->hasMany('App\Test','id_course','id');
+    }
+    public function score(){
+        return $this->hasOne('App\Score','id_course','id');
+    }
 
 }

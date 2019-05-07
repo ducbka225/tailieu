@@ -1,53 +1,158 @@
 @extends('master')
 @section('content')
-<div class="container">
-        <div class="row mx-m-250">
-         
+<div class="col-md-12">
 
-            <div class="col-12 col-md-12 col-lg-4 px-25">
-                <div class="content">
-                    	 
-                <form class="quiz-form" method="post" action="posttest/{course_id}" name="post">	
-	                 <h2>Đề số 01</h2>
-	            @foreach($test_result as $tr)
+                                                
+    <h3 class="page-title">My Results</h3>
 
-                    	<hr class="style-one"><font size="4" color="#0B0B61"><b></b></font>	
-				<div id="khungtracnghiem">
-				<div id="{{$tr->id}}"><div class="bai_stt">問: {{$tr->answer}}</div>&nbsp;&nbsp;
-				<font size="4" color="#0B0B61"><b><h4>
-					
-				</b></font></div>
-				
-				</div>
-				 @endforeach
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            View result        
+        </div>
 
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                        	<tr>
+	                            <th>User</th>
+	                            <td>{{Auth::User()->name}}</td>
+                        	</tr>
+                            <tr>
+	                            <th>Date</th>
+	                            <td>{{$test_result->created_at}}</td>
+                   		 	</tr>
+	                        <tr>
+	                            <th>Score</th>
+	                            <td>{{$counttrue}}/{{$countquestion}}</td>
+	                        </tr>
+                		</tbody>
+                	</table>
+                                                    
+                    <table class="table table-bordered table-striped">
+                    	<?php $i = 1; ?>
+                        @foreach($result as $t)
+                        <tbody>
+                        	<tr class="test-option-false">
+	                            <th style="width: 10%">Question {{ $i }}.</th>
+	                            <th>{{$t->content}} ?</th>
+                        	</tr>
+                            <!-- <tr>
+                                <td>Code snippet</td>
+                                <td><div class="code_snippet">ads</div></td>
+                            </tr> -->
+                            <tr>
+	                            <td>Đáp án</td>
+	                            <td>
+                                	<ul>
+                                		@if($t->answer == 1 && $t->answer == $t->true )
+                                        <li style="font-weight: bold; text-decoration: underline; color: green">{{$t->a}}
+                                         	<em>(correct answer)</em>
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="">{{$t->c}}
+	                                     	<em>(your answer)</em>
+                                     	</li>
+                                     	<li style="">{{$t->d}}
 
-                         <input type="button" value="Làm Lại" onclick="reset_result();" class="btn btn-minw btn-square btn-success" id="lamlai">
-                         <input type="button" value="Đáp Án" onclick="result_correct();" class="btn btn-minw btn-square btn-primary" id="dapan" data-toggle="tooltip" title="" data-original-title="Bạn chỉ xem được đáp án khi làm đúng 60% trở lên">
-				</form>
-				
+                                     	@elseif($t->answer == 1 && $t->answer != $t->true )
 
+                                     	<li style=" font-weight: bold; color: red">{{$t->a}}
 
-                        <!-- <form >
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio" checked>{{$t->a}}
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->b}}
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->c}}
-						    </label>
-						     <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->d}}
-						    </label>
-						</form> -->
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="">{{$t->c}}
+	                                     	<em>(your answer)</em>
+                                     	</li>
+                                     	<li style="">{{$t->d}}
 
+                                     	@elseif($t->answer == 2 && $t->answer == $t->true )
+                                        <li >{{$t->a}}
+                                         	
+                                     	</li>
+	                                    <li style="font-weight: bold; text-decoration: underline; color: green">{{$t->b}}<em>(correct answer)</em>
+                                     	<li style="">{{$t->c}}
+	                                     	<em>(your answer)</em>
+                                     	</li>
+                                     	<li style="">{{$t->d}}
 
-                    </div><!-- .course-content -->
-                </div><!-- .col -->
-               
-            </div><!-- .col -->
-    </div><!-- .container -->
+                                     	@elseif($t->answer == 2 && $t->answer != $t->true )
 
+                                     	<li style="">{{$t->a}}
+
+                                     	</li>
+	                                    <li style=" font-weight: bold; color: red">{{$t->b}}
+                                     	<li style="">{{$t->c}}
+	                
+                                     	</li>
+                                     	<li style="">{{$t->d}}
+
+                                     	@elseif($t->answer == 3 && $t->answer == $t->true )
+                                        <li style="">{{$t->a}}
+                                         	
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="font-weight: bold; text-decoration: underline; color: green">{{$t->c}}<em>(correct answer)</em>
+	                                  
+                                     	</li>
+                                     	<li style="">{{$t->d}}
+
+                                     	@elseif($t->answer == 3 && $t->answer != $t->true )
+
+                                     	<li style=" ">{{$t->a}}
+
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="font-weight: bold; color: red">{{$t->c}}
+	                                     	<em>(your answer)</em>
+                                     	</li>
+                                     	<li style="">{{$t->d}}
+
+                                     	@elseif($t->answer == 4 && $t->answer == $t->true )
+                                        <li style="">{{$t->a}}
+                                         	
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="">{{$t->c}}
+	                                     	
+                                     	</li>
+                                     	<li style="font-weight: bold; text-decoration: underline; color: green">{{$t->d}}<em>(your answer)</em>
+
+                                     	@elseif($t->answer == 4 && $t->answer != $t->true )
+
+                                     	<li style=" ">{{$t->a}}
+
+                                     	</li>
+	                                    <li style="">{{$t->b}}
+                                     	<li style="">{{$t->c}}
+	                                     	
+                                     	</li>
+                                     	<li style="font-weight: bold; color: red">{{$t->d}}<em>(your answer)</em>
+                                     	@endif
+                                    </ul>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td>Answer Explanation</td>
+                            <td> ád<br><br>
+                            	Read more:
+                            	<a href="ád" target="_blank">ád</a>
+                            </td>
+                        </tr> -->
+	                    </tbody>
+	                    <?php $i++; ?>
+                        @endforeach
+	                </table>
+            	</div>
+            </div>
+
+            <p>&nbsp;</p>
+
+            <a href="trangchu" class="btn btn-default"> << Back to home</a>
+           <!--  <a href="http://127.0.0.1:8000/results" class="btn btn-default">See all my results</a> -->
+        </div>
+    </div>
+
+    </div>
 @endsection

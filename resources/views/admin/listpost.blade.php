@@ -12,7 +12,8 @@
                             <!-- BASIC TABLE -->
                             <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Post Table</h3>
+                                        <h3 class="panel-title">Danh sách bài học</h3>
+                                        <h4 class="panel-content"><a href="admin/addpost/{{$course_id}}" >Thêm bài học</a></h4>
                                     </div>
                                 <div class="panel-body">
                     <!-- /.col-lg-12 -->
@@ -38,7 +39,7 @@
                                 	<a href="admin/addpost/{{$course_id}}" title="Thêm bài học">
 							          <span class="glyphicon glyphicon-plus"></span>
 							        </a>
-							        <a href="deletepost/{{$lp->id}}" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a> 
+							        <a href="deletepost/{{$lp->id}}" title="Xóa bài học"><i class="fa fa-trash-o  fa-fw"></i></a> 
                                 </td>
                             </tr>
                             @endforeach

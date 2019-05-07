@@ -1,89 +1,11 @@
 @extends('master')
 @section('content')
-<div class="icon-boxes">
-        <div class="container-fluid">
-            <div class="flex flex-wrap align-items-stretch">
-                <div class="icon-box">
-                    <div class="icon">
-                        <span class="ti-user"></span>
-                    </div><!-- .icon -->
-
-                    <header class="entry-header">
-                        <h2 class="entry-title">Learn From The Experts</h2>
-                    </header><!-- .entry-header -->
-
-                    <div class="entry-content">
-                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                    </div><!-- .entry-content -->
-
-                    <footer class="entry-footer read-more">
-                        <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
-                    </footer><!-- .entry-footer -->
-                </div><!-- .icon-box -->
-
-                <div class="icon-box">
-                    <div class="icon">
-                        <span class="ti-folder"></span>
-                    </div><!-- .icon -->
-
-                    <header class="entry-header">
-                        <h2 class="entry-title">Book Library & Store</h2>
-                    </header><!-- .entry-header -->
-
-                    <div class="entry-content">
-                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                    </div><!-- .entry-content -->
-
-                    <footer class="entry-footer read-more">
-                        <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
-                    </footer><!-- .entry-footer -->
-                </div><!-- .icon-box -->
-
-                <div class="icon-box">
-                    <div class="icon">
-                        <span class="ti-book"></span>
-                    </div><!-- .icon -->
-
-                    <header class="entry-header">
-                        <h2 class="entry-title">Best Course Online</h2>
-                    </header><!-- .entry-header -->
-
-                    <div class="entry-content">
-                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                    </div><!-- .entry-content -->
-
-                    <footer class="entry-footer read-more">
-                        <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
-                    </footer><!-- .entry-footer -->
-                </div><!-- .icon-box -->
-
-                <div class="icon-box">
-                    <div class="icon">
-                        <span class="ti-world"></span>
-                    </div><!-- .icon -->
-
-                    <header class="entry-header">
-                        <h2 class="entry-title">Best Industry Leaders</h2>
-                    </header><!-- .entry-header -->
-
-                    <div class="entry-content">
-                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                    </div><!-- .entry-content -->
-
-                    <footer class="entry-footer read-more">
-                        <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
-                    </footer><!-- .entry-footer -->
-                </div><!-- .icon-box -->
-            </div><!-- .row -->
-        </div><!-- .container-fluid -->
-    </div><!-- .icon-boxes -->
-    
-    <section class="featured-courses vertical-column courses-wrap">
+<section class="featured-courses vertical-column courses-wrap">
         <div class="container">
-            <div class="row mx-m-25">
+            <div class="col-xs-12 .col-md-8">
                 <div class="col-12 px-25">
                     <header class="heading flex flex-wrap justify-content-between align-items-center">
-                        <h2 class="entry-title">Featured Courses</h2>
+                        <h4 class="entry-title">Các khóa học mới nhất</h4>
 
                         <nav class="courses-menu mt-3 mt-lg-0">
                             <ul class="flex flex-wrap justify-content-md-end align-items-center">
@@ -99,19 +21,19 @@
 
                
 
-                @foreach($posts as $p)
+                @foreach($courses as $c)
                 <div class="col-12 col-md-6 col-lg-4 px-25">
                     <div class="course-content">
                         <figure class="course-thumbnail">
-                            <a href="details/{{$p->id}}"><img src="ezuca/images/{{$p->avatar}}" height="200px" alt=""></a>
+                            <a href="details/{{$c->id}}"><img src="ezuca/images/{{$c->course_avatar}}" height="200px" alt=""></a>
                         </figure><!-- .course-thumbnail -->
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="details/{{$p->id}}" style="color: green">{{$p->title}}</a></h2>
+                                <h2 class="entry-title"><a href="details/{{$c->id}}" style="color: green">{{$c->title}}</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author">{{$p->subcontent}}</div>
+                                    <div class="course-author">{{$c->lenght}}</div>
 
                                     <!-- <div class="course-date">Nov 06, 2018</div> -->
                                 </div><!-- .course-date -->
@@ -144,92 +66,5 @@
     </section><!-- .courses-wrap -->
 
 
-    <section class="home-gallery">
-        <div class="gallery-wrap flex flex-wrap">
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/a.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/b.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid2x2">
-                <a href="#"><img src="images/c.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/d.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/e.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid2x1">
-                <a href="#"><img src="images/g.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid2x1">
-                <a href="#"><img src="images/h.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/i.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid2x2 ">
-                <a href="#"><img src="images/j.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/k.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/l.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid2x1">
-                <a href="#"><img src="images/m.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid3x1">
-                <a href="#"><img src="images/n.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-
-            <div class="gallery-grid gallery-grid1x1">
-                <a href="#"><img src="images/o.jpg" alt=""></a>
-            </div><!-- .gallery-grid -->
-        </div><!-- .gallery-wrap -->
-    </section><!-- .home-gallery -->
-
-    <div class="clients-logo">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 flex flex-wrap justify-content-center justify-content-lg-between align-items-center">
-                    <div class="logo-wrap">
-                        <img src="images/logo-1.png" alt="">
-                    </div><!-- .logo-wrap -->
-
-                    <div class="logo-wrap">
-                        <img src="images/logo-2.png" alt="">
-                    </div><!-- .logo-wrap -->
-
-                    <div class="logo-wrap">
-                        <img src="images/logo-3.png" alt="">
-                    </div><!-- .logo-wrap -->
-
-                    <div class="logo-wrap">
-                        <img src="images/logo-4.png" alt="">
-                    </div><!-- .logo-wrap -->
-
-                    <div class="logo-wrap">
-                        <img src="images/logo-5.png" alt="">
-                    </div><!-- .logo-wrap -->
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .clients-logo -->
-
+  
 @endsection

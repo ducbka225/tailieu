@@ -36,7 +36,7 @@
 							</div>
 							<form class="form-auth-small" action="admin/login" method="POST">
 								{!!csrf_field()!!}
-								<input id="role" name="role" value="0" type="hidden">
+								<input id="role" name="role" value="1" type="hidden">
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
 									<input id="email" name="email" required="" placeholder="Email" type="email">

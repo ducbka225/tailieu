@@ -10,30 +10,29 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Post
+                        <h1 class="page-header">Course
                             <small>Add</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="postaddpost/{{$course_id}}" method="POST">
+                        <form action="postaddcourse" method="POST">
                         	{!!csrf_field()!!}
                             <div class="form-group">
-                                <label>Lesson Title</label>
-                                <input class="form-control" name="txtTitle" placeholder="Please Enter Title" required />
+                                <label>Course Number</label>
+                                <input class="form-control" name="txtCourse_number" placeholder="Please Enter Number" required />
                             </div>
                             <div class="form-group">
-                                <label>avatar</label>
-                                <input class="form-control" name="txtAvatar" placeholder="Please Enter Avatar" required />
+                                <label>Title</label>
+                                <input class="form-control" name="txtTitle" placeholder="Please Enter title" required />
                             </div>
                             <div class="form-group">
-                                <label>Content</label>
-                                <textarea name="txtContent" class="form-control " id="editor2"></textarea>
-                                
+                                <label>Course Avatar</label>
+                                <input class="form-control" name="txtCourse_avatar" placeholder="Please Enter title" required />                                
                             </div>
                             <div class="form-group">
-					          <label>SubContent</label>
-					          <input class="form-control" name="txtSubcontent" placeholder="Please Enter Content"  required />
+					          <label>lenght</label>
+					          <input class="form-control" name="txtLenght" placeholder="Please Enter Content"  required />
 					        </div> 
                             
                             <button type="submit" class="btn btn-primary">Thêm</button>

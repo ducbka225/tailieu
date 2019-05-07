@@ -11,12 +11,13 @@ use App\Course;
 use Auth;
 use App\Test;
 use App\Test_result;
+use App\Score;
 
 class PageController extends Controller
 {
     public function index(){
-    	$posts = Post::get();
-    	return view('page.index', compact('posts'));
+    	$courses = Course::get();
+    	return view('page.index', compact('courses'));
     }
 
     public function getSignup(){
@@ -100,40 +101,48 @@ class PageController extends Controller
         $course = Course::all();
         return view('page.course', compact('course'));
     }
+   
+    // public function gettest($course_id){
+    //     $test_course = Test::where('id_course',$course_id)->get();
+    //     return view('page.test', compact('test_course','course_id'));
+    // }
 
-    public function gettest($course_id){
-        $test_course = Test::where('id_course',$course_id)->get();
-        return view('page.test', compact('test_course','course_id'));
-    }
+    // public function result($course_id,Request $req)
+    // {
 
-    public function result($course_id,Request $req)
-    {
-
-        $test_result = new Test_result;
-        foreach ($test_result as $test_result){
+    //     $test_result = new Test_result;
+    //     foreach ($test_result as $test_result){
 
 
-        $test_result->answer=$req ->a;
+    //     $test_result->answer=$req ->a;
 
-        }
-        // foreach ($test_results as $test_result)
-        // $test_result->answer = $req->answer;
-        // if($req==$test->true)
-        //  {
-        //    echo('đúng câu này');
-        //  }
-        // else echo('sai');
-        $test_result->save();
+    //     }
+    //     // foreach ($test_results as $test_result)
+    //     // $test_result->answer = $req->answer;
+    //     // if($req==$test->true)
+    //     //  {
+    //     //    echo('đúng câu này');
+    //     //  }
+    //     // else echo('sai');
+    //     $test_result->save();
       
 
-        return view('page.result',compact('test_result','course_id'));
-    }
+    //     return view('page.result',compact('test_result','course_id'));
+    // }
     
+    
+
+    // public function getResult($course_id){
+    //     $id_user = Auth::id();
+    //     return view('page.result');
+    // }
+
 
     public function post($course_id)
     {
         $post_course= Post::where('id_course',$course_id)->get();
-        return view('page.post_course',compact('post_course'));
+        $score=Score::where('id_course',$course_id)->orderBy('total', 'ASC')->get();
+        return view('page.post_course',compact('post_course','score'));
 
     }
 

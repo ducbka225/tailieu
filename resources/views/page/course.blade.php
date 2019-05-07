@@ -2,11 +2,12 @@
 @section('content')
 <div class="container">
             <div class="row mx-m-25">
+                <h3> Danh sách khóa học </h3>
           @foreach($course as $c)
-                <div class="col-12 col-md-6 col-lg-4 px-25">
+                <div class="col-12 col-md-4 col-lg-4 px-25">
                     <div class="course-content">
                         <figure class="course-thumbnail">
-                            <a href="courses/{{$c->id}}"><img src="ezuca/images/{{$c->course_avatar}}" width="150px" height="100px"></a>
+                            <a href="courses/{{$c->id}}"><img src="ezuca/images/{{$c->course_avatar}}" width="250px" height="10px"></a>
                         </figure>
                         <div class="course-content-wrap">
                             <header class="entry-header">
@@ -17,7 +18,7 @@
                             </header><!-- .entry-header -->
                              <footer class="entry-footer flex justify-content-between align-items-center">
                                 <div class="course-cost">
-                                   <a href="test/{{$c->id}}"> <span class="free-cost">Test</span></a>
+                                   <a href="test/{{$c->id}}"> <span class="free-cost">Thi</span></a>
                                 </div><!-- .course-cost -->
                                 <div class="course-ratings flex justify-content-end align-items-center">
                                     <span class="fa fa-star checked"></span>
@@ -31,6 +32,7 @@
                         </div><!-- .course-content-wrap -->
                     </div><!-- .course-content -->
                 </div><!-- .col -->
+                <div class="">
                 @endforeach
             </div><!-- .col -->
     </div><!-- .container -->

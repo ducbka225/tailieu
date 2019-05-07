@@ -1,116 +1,117 @@
 @extends('master')
 @section('content')
 <div class="container">
-        <div class="row mx-m-250">
-         
+	<div class="col-md-12">                                            
+        <h3 class="page-title">Bài kiểm tra giữa kỳ - {{$course->title}}</h3>
+       <h4> Time <span id="time" style="color:#FF0000">60:00</span> minutes!</h4>
+        <form method="POST" action="/post-test" accept-charset="UTF-8">
+            {!!csrf_field()!!}
+            <input type="hidden" name="course" value="{{$course->id}}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Trả lời {{$countquestion}} câu hỏi. Thời gian làm bài 60 phút. 
+                </div>
+                            
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <?php $i = 1; ?>
+                            @foreach($test as $t)
+                                <div class="form-group">
+                                    <strong>Question {{ $i }}.</strong>
 
-            <div class="col-12 col-md-12 col-lg-4 px-25">
-                <div class="content">
-                    	 
-                <form class="quiz-form" method="post" action="result/{course_id}" name="post">	
-                	{{ csrf_field() }}
-	                 <h2>Đề số 01</h2>
-	            @foreach($test_course as $t)
+                                    <div class="code_snippet">{{$t->content}} ?</div>
+                                    
+                                    <input
+                                        type="hidden"
+                                        name="questions[{{ $i }}]"
+                                        value="{{ $t->id }}">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="answerss[{{ $t->id }}]" value="1">
+                                        A. {{ $t->a }}
+                                    </label>
+                                    <br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="answerss[{{ $t->id }}]" value="2">
+                                       B. {{ $t->b }}
+                                    </label>
+                                    <br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="answerss[{{ $t->id }}]" value="3">
+                                        C. {{ $t->c }}
+                                    </label>
+                                    <br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="answerss[{{ $t->id }}]" value="4">
+                                        D. {{ $t->d }}
+                                    </label>
+                                    <br>
+                                   
+                                </div>
+                            <?php $i++; ?>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    	<hr class="style-one"><font size="4" color="#0B0B61"><b></b></font>	
-				<div id="khungtracnghiem">
-				<div id="{{$t->id}}"><div class="bai_stt">問:{{$t->id}} {{$t->content}}</div>&nbsp;&nbsp;<font size="4" color="#0B0B61"><b></b></font></div>
-				<table id="table_tracnghiem" name="{{$t->id}}">
-						<tbody><tr id="table_tracnghiem"> <td id="table_tracnghiem">
-							<!-- <input id="{{$t->id}}_correct_11" type="hidden" name="{{$t->id}}"> -->
-							<input id="{{$t->id}}_11" type="radio" name="{{$t->id}}" value="{{$t->a}}"><span style="font-size: 15px">   {{$t->a}}</span><span id="result_question_11"></span> <span id="result_correct_11"></span></td></tr>
-						<tr id="table_tracnghiem"> <td id="table_tracnghiem">
-							<!-- <input id="{{$t->id}}_correct_12" type="hidden" name="correct"> -->
-							<input id="{{$t->id}}_12" type="radio" name="{{$t->id}}" value="{{$t->b}}"><span style="font-size: 15px">   {{$t->b}} </span><span id="result_question_12"></span> <span id="result_correct_12"></span></td></tr>
-						<tr id="table_tracnghiem"> <td id="table_tracnghiem">
-							<!-- <input id="{{$t->id}}_correct_13" type="hidden" name="correct"> -->
-							<input id="{{$t->id}}_13" type="radio" name="{{$t->id}}" value="{{$t->c}}"><span style="font-size: 15px">   {{$t->c}} </span><span id="result_question_13"></span> <span id="result_correct_13"></span></td></tr>
-						<tr id="table_tracnghiem"> <td id="table_tracnghiem">
-						<!-- 	<input id="{{$t->id}}_correct_14" type="hidden" name="correct"> -->
-							<input id="{{$t->id}}_14" type="radio" name="{{$t->id}}" value="{{$t->d}}"><span style="font-size: 15px">  {{$t->d}} </span><span id="result_question_14"></span> <span id="result_correct_14"></span></td></tr>
-				</tbody></table>
-				</div>
-				 @endforeach
-				         <input type="submit" value="Kết Quả" class="btn btn-minw btn-square btn-danger" id="ketqua">
+            <input class="btn btn-danger" type="submit" value="Submit answers">
+            <div class="showtime">
+                <input type="text" readonly="" id="timespent" value="0:00">
+            </div>
+            <hr/>
+        </form>
 
+    </div>
+</div>    \
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-						 <!-- <input type="button" value="Kết Quả" onclick="check_result();" class="btn btn-minw btn-square btn-danger" id="ketqua"> -->
-                       <!--   <input type="button" value="Làm Lại" onclick="reset_result();" class="btn btn-minw btn-square btn-success" id="lamlai">
-                         <input type="button" value="Đáp Án" onclick="result_correct();" class="btn btn-minw btn-square btn-primary" id="dapan" data-toggle="tooltip" title="" data-original-title="Bạn chỉ xem được đáp án khi làm đúng 60% trở lên"> -->
-				</form>
-				<!--  <script type="hidden">
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-						function check_result(){
-						 var your_{{$t->id}}_correct = 0;
-							for(i=0;i<{{$t->id}}_id.length;i++){
-								for(j in {{$t->id}}_id[i]){
-									if(document.getElementById('{{$t->id}}_' + {{$t->id}}_id[i][j]).checked==true){
-										document.getElementById('result_question_' + {{$t->id}}_id[i][j]).innerHTML = your_{{$t->id}}[0];
-									}
-									document.getElementById('{{$t->id}}_'+{{$t->id}}_id[i][j]).disabled=true;
-								}
-							}		
-							for(i=0;i<{{$t->id}}_correct.length;i++){
-								if(document.getElementById('{{$t->id}}_'+{{$t->id}}_correct[i]).checked == true){
-									document.getElementById('result_question_'+{{$t->id}}_correct[i]).innerHTML = your_{{$t->id}}[1];
-									your_{{$t->id}}_correct++;
-								}	
-							}
-							if(question_count == your_{{$t->id}}_correct)
-								var color = 'green';
-							else
-								var color = 'red';
-						}
-										 	
-						function result_correct(){
-								var your_{{$t->id}}_correct = 0;
-								for(i=0;i<{{$t->id}}_correct.length;i++){
-									if(document.getElementById('{{$t->id}}_'+{{$t->id}}_correct[i]).checked == true){
-										your_{{$t->id}}_correct++;
-									}	
-								}
-								var tyledung = (your_{{$t->id}}_correct / question_count) * 100;
-								var username = "";
-								if(tyledung >= 60 || username =='administrator'){
-									for(i in {{$t->id}}_correct){
-										document.getElementById('result_correct_'+{{$t->id}}_correct[i]).innerHTML = your_{{$t->id}};
-									}
-								}
-						}
-						function reset_result(){
-							for(i in {{$t->id}}_id){
-								for(j in {{$t->id}}_id[i]){
-									document.getElementById('result_question_' + {{$t->id}}_id[i][j]).innerHTML = '';
-									document.getElementById('result_correct_' + {{$t->id}}_id[i][j]).innerHTML = '';
-									document.getElementById('{{$t->id}}_'+{{$t->id}}_id[i][j]).disabled=false;
-									document.getElementById('{{$t->id}}_'+{{$t->id}}_id[i][j]).checked = false;
-								}
-							}	
-							document.getElementById('your_{{$t->id}}_correct').innerHTML = '';
-						}
-				 </script> -->
+        display.textContent = minutes + ":" + seconds;
 
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
 
-                        <!-- <form >
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio" checked>{{$t->a}}
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->b}}
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->c}}
-						    </label>
-						     <label class="radio-inline">
-						      <input type="radio" name="optradio">{{$t->d}}
-						    </label>
-						</form> -->
+window.onload = function () {
+    var fiveMinutes = 60 * 60,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+</script>
+<style type="text/css">
+    div .code_snippet{
+        margin: 15px 0 5px 0;
+        padding: 7px;
+        font-family: "Courier New";
+        border: 1px dashed #CCC;
+        background-color: #F7F7F7;
+        white-space: pre;
+    }
 
+    .showtime {
+    position: relative;
+    }
 
-                    </div><!-- .course-content -->
-                </div><!-- .col -->
-               
-            </div><!-- .col -->
-    </div><!-- .container -->
+    .showtime #timespent {
+        position: fixed;
+        right: 50px;
+        bottom: 10px;
+        position:fixed;
+          font-family: "Segoe UI",Arial,sans-serif;
+          font-size:16px;
+          width:80px;
+    }
+</style>
+
 
 @endsection

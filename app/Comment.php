@@ -21,4 +21,8 @@ class Comment extends Model
  {
  	return $this->belongsto('App\Course','id_course','id');
  }  
+    public function repcomment()
+    {
+        return $this->hasMany('App\Repcomment','id_comment','id');
+    }
 }
