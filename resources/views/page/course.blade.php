@@ -26,7 +26,7 @@
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star-o"></span>
-                                    <span class="course-ratings-count">(4 votes)</span>
+                                    <span class="course-ratings-count">(4  votes)</span>
                                 </div><!-- .course-ratings -->
                             </footer><!-- .entry-footer -->
                         </div><!-- .course-content-wrap -->
