@@ -140,8 +140,9 @@ class PageController extends Controller
 
     public function post($course_id)
     {
-        $post_course= Post::where('id_course',$course_id)->get();
-        $score=Score::where('id_course',$course_id)->orderBy('total', 'ASC')->get();
+        $post_course = Post::where('id_course',$course_id)->get();
+        $score = Score::where('id_course',$course_id)->orderBy('total', 'DESC')->get();
+
         return view('page.post_course',compact('post_course','score'));
 
     }
@@ -188,12 +189,12 @@ class PageController extends Controller
         return redirect()->back()->with('message', 'Cập Nhật Thành Công!');
     }
 
-    // public function getUpdateInfo(){
-    //     $id = Auth::user()->id;
-    //     $user = User::find($id);
+    public function getUpdateInfo(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
 
-    //     return view('page.update_info', compact('user'));
-    // }
+        return view('page.update_info', compact('user'));
+    }
 
     public function getChangePassword(){
         $id = Auth::user()->id;

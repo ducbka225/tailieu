@@ -36,7 +36,7 @@ Route::get('details/{id}', 'PageController@getDetails');
 
 Route::get('student/info', 'PageController@getStudentInfo')->middleware('userlogin');
 
-// Route::get('student/updateinfo', 'PageController@getUpdateInfo')->middleware('auth');
+Route::get('student/updateinfo', 'PageController@getUpdateInfo')->middleware('auth');
 
 Route::post('updateinfo', 'PageController@postUpdateInfo')->middleware('userlogin');
 

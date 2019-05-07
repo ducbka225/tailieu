@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<hr>
 <div class="container">
 	<div class="col-md-12">                                            
         <h3 class="page-title">Bài kiểm tra giữa kỳ - {{$course->title}}</h3>

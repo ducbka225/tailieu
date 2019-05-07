@@ -50,11 +50,11 @@
                         <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
                             <nav class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                                    <li ><a href="trangchu">Trang chủ</a></li>
-                                    <li ><a href="#">Blog chia sẻ</a></li>
-                                    <li ><a href="courses/{id}">Khóa học</a></li>
-                                    <li ><a href="student/info">Thông tin cá nhân</a></li>
-                                    <li ><a href="#">Liên hệ</a></li>
+                                    <li style="width:150px;"><a href="trangchu">Trang chủ</a></li>
+                                    <li style="width:170px;"><a href="#">Blog chia sẻ</a></li>
+                                    <li style="width:170px;"><a href="courses/1">Khóa học</a></li>
+                                    <li style="width:250px;"><a href="student/info">Thông tin cá nhân</a></li>
+                                    <li style="width:170px;"><a href="#">Liên hệ</a></li>
                                    
                                 </ul>
 

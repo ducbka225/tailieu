@@ -16,6 +16,14 @@ class TestController extends Controller
     	$course = Course::where('id', $course_id)->first();
     	$test = Test::where('id_course', $course_id)->orderby('id')->get();
     	$countquestion = $test->count('id');
+
+        $id_user = Auth::id();
+        $id_test_first = $test->first()->id;
+        $test_result = Test_Result::where('id_test',$id_test_first)
+                                            ->where('id_user', $id_user)->count('id');
+        if($test_result != 0){
+            return redirect()->route('result', [$course_id]);
+        }
     	return view('page.test', compact('course', 'test', 'countquestion'));
     }
 
