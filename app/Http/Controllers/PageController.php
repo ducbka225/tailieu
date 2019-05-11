@@ -153,6 +153,12 @@ class PageController extends Controller
         $user = User::find($id);
         return view('page.info', compact('user'));
     }
+     public function getUpdateInfo(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+        return view('page.update_info', compact('user'));
+    }
 
     public function postUpdateInfo(Request $req){
         $id = Auth::user()->id;
@@ -189,12 +195,7 @@ class PageController extends Controller
         return redirect()->back()->with('message', 'Cập Nhật Thành Công!');
     }
 
-    public function getUpdateInfo(){
-        $id = Auth::user()->id;
-        $user = User::find($id);
-
-        return view('page.update_info', compact('user'));
-    }
+   
 
     public function getChangePassword(){
         $id = Auth::user()->id;

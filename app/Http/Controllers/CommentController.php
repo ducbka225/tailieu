@@ -10,6 +10,7 @@ class CommentController extends Controller
 {
     public function postCommentPost($post_id, Request $req){
     	$comment = new Comment;
+        // $comment->id = $request->get('comment_id');
     	$comment->id_post = $post_id;
     	$comment->id_user = Auth::user()->id;
     	$comment->content = $req->commentpost;
@@ -21,5 +22,17 @@ class CommentController extends Controller
     	// ));
     	// $comment->save();
     	// return redirect()->back()->with('status','your comment has been created!');
+    }
+    public function delete(Request $request)
+    {
+      $comment = Comment::find($request->get('comment_id'));
+      if ($comment==null) return response()->json(['success'=>""]);
+      $user_id = $request->get('user_id');
+      if ($user_id != \Auth::user()->id && \Auth::user()->id !=1 ) {
+        return response()->json(['success'=>"Bạn không có quyền xoá bình luận người khác!"]);
+      } else {
+        $comment->delete();
+      }
+      return response()->json(['success'=>""]);
     }
 }

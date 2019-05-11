@@ -2,10 +2,12 @@
 @section('content')
 <hr>
 <div class="container">
+     <h3> Danh sách khóa học </h3>
     <div class="row mx-m-25">
-            <h3> Danh sách khóa học </h3>
-          @foreach($course as $c)
-                <div class="col-12 col-md-4 col-lg-4 px-25">
+           
+          
+                <div class="col-12 col-md-6 col-lg-6 px-25">
+                    @foreach($course as $c)
                     <div class="course-content">
                         <figure class="course-thumbnail">
                             <a href="courses/{{$c->id}}"><img src="ezuca/images/{{$c->course_avatar}}" width="250px" height="200px"></a>
@@ -32,9 +34,10 @@
                             </footer><!-- .entry-footer -->
                         </div><!-- .course-content-wrap -->
                     </div><!-- .course-content -->
+                    @endforeach
                 </div><!-- .col -->
                 <div class="">
-                @endforeach
+                
             </div><!-- .col -->
     </div><!-- .container -->
 

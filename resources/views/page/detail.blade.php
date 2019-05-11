@@ -34,7 +34,11 @@
                 	<p  align="justify" > 
                 		{!!$post->content!!}
                 	</p>
-                    
+                    <p  align="justify" > 
+                        <audio controls>
+                                      <source src="ezuca/audio/{{$post->subcontent}}" type="audio/mpeg">
+                                    </audio>
+                    </p>
                 </div><!-- .single-post-wrap -->
 
                 <div class="tags-links mt-4">

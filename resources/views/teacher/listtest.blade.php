@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('teacher.master')
 @section('content')
 <div id="wrapper">
            
@@ -13,7 +13,7 @@
                             <div class="panel">
                                     <div class="panel-heading">
                                         <h3 class="panel-title"> List Test Of Course Table</h3>
-            
+                                        <h4><a href="teacher/addtest/{{$course_id}}">Thêm câu hỏi</a></h4>
                                     </div>
                                 <div class="panel-body">
                     <!-- /.col-lg-12 -->
@@ -42,8 +42,10 @@
                                 <td>{{$lt->true}}</td>
                                 <td class="center">
 
-                                
-                                	<a href="/admin/result/{{$lt->id}}">
+                                    <a href="teacher/addtest/{{$course_id}}" title="Thêm Câu hỏi">
+                                                      <span class="glyphicon glyphicon-plus"></span>
+                                                    </a>
+                                	<a href="/teacher/result/{{$lt->id}}">
 											          <span class="glyphicon glyphicon-list-alt"></span>
 											        </a>
 							        <a href="deletetest/{{$lt->id}}" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a> 

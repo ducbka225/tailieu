@@ -39,7 +39,7 @@
 			            @if(Session::has('loi'))
 			            <div class="alert alert-danger">{{Session::get('loi')}}</div>
 			            @endif
-						<form action="student/updateinfo" method="Post" enctype="multipart/form-data">
+						<form action="updateinfo" method="POST" enctype="multipart/form-data">
 							{!!csrf_field()!!}
 						  <h2>Thay Đổi thông tin cá nhân</h2>
 						  <div class="input-container">

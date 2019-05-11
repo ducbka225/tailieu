@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('teacher.master')
 @section('content')
 <div id="wrapper">
            
@@ -13,7 +13,6 @@
 							<div class="panel">
 									<div class="panel-heading">
 										<h3 class="panel-title">Course Table</h3>
-										<h4><a href="admin/addcourse"> Thêm khóa học </a></h4>
 									</div>
 								<div class="panel-body">
                     <!-- /.col-lg-12 -->
@@ -37,14 +36,13 @@
 				                                <td><img src="ezuca/images/{{$cs->course_avatar}}" width="150px" height="100px"></td>
 				                                 <td>{{$cs->lenght}}</td>
 				                                 <td class="center">
-				                                	<a href="admin/deletecourse/{{$cs->id}}" title="Xóa khóa học"><i class="fa fa-trash-o  fa-fw"></i></a> | 
-				                                	<!-- <a href="/admin/addcourse" title="Thêm Khóa Học">
+				                                   <a href="/teacher/addcourse" title="Thêm Khóa Học">
 											          <span class="glyphicon glyphicon-plus"></span>
-											        </a> |  -->
-											        <a href="/admin/post/{{$cs->id}}" title="Danh sách bài học">
+											        </a> |  
+											        <a href="/teacher/post/{{$cs->id}}" title="Danh sách bài học">
 											          <span class="glyphicon glyphicon-list-alt"></span>
 											        </a>
-											        <a href="/admin/test/{{$cs->id}}" title="Danh sách bài kiểm tra">
+											        <a href="/teacher/test/{{$cs->id}}" title="Danh sách bài kiểm tra">
 											        	<span class="fa fa-file-text"></span>
 											        </a>	
 				                                </td>

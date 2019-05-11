@@ -44,7 +44,7 @@
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>Thông tin cá nhân</span></a></li>
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Tin nhắn</span></a></li>
 								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Cài đặt</span></a></li>
-								<li><a href="admin/logout"><i class="lnr lnr-exit"></i> <span>Đăng xuất</span></a></li>
+								<li><a href="teacher/logout"><i class="lnr lnr-exit"></i> <span>Đăng xuất</span></a></li>
 							</ul>
 						</li>
 						<!-- <li>
@@ -60,31 +60,34 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="admin/index" class="active"><i class="lnr lnr-home"></i> <span>Trang chủ</span></a></li>
-						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Thống kê</span></a></li>
+						<li><a href="teacher/index" class="active"><i class="lnr lnr-home"></i> <span>Trang chủ</span></a></li>
+						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Tài Liệu</span></a></li>
+						<li>
+							<a href="#sub__Pages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Kiểm tra</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+
+							<div id="sub__Pages" class="collapse ">
+								<ul class="nav">
+									<li><a href="teacher/alltest" class="">Tất cả câu hỏi</a></li>
+									<li><a href="teacher/allresult" class="">Tất cả câu trả lời</a></li>
+								</ul>
+							</div>
+						</li>
 						<li>
 							<a href="#sub_aPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Khóa học</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="sub_aPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="admin/listcourse" class="">Tất cả khóa học</a></li>
+									<li><a href="teacher/listcourse" class="">Tất cả khóa học</a></li>
+									<li><a href="teacher/addcourse" class="">Thêm khóa học</a></li>
 								</ul>
 							</div>
 						</li>
-						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Người dùng</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="admin/listuser" class="">Tất cả người dùng</a></li>
-									<li><a href="admin/adduser" class="">Thêm người dùng</a></li>
-								</ul>
-							</div>
-						</li>
+						
 						<li>
 							<a href="#sub_Pages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Bài học</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="sub_Pages" class="collapse ">
 								<ul class="nav">
-									<li><a href="admin/post" class="">Tất cả bài học</a></li>
-									<!-- <li><a href="admin/addlesson" class="">Add Lesson</a></li> -->
+									<li><a href="teacher/post" class="">Tất cả bài học</a></li>
+									<li><a href="teacher/addlesson" class="">Thêm bài học</a></li>
 								</ul>
 							</div>
 						</li>

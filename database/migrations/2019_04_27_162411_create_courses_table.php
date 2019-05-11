@@ -19,6 +19,9 @@ class CreateCoursesTable extends Migration
             $table->string('title');
             $table->string('course_avatar');
             $table->string('lenght');
+
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

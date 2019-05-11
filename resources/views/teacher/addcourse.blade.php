@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('teacher.master')
 @section('content')
 <!-- Page Content -->
 <div id="wrapper">
@@ -34,14 +34,6 @@
 					          <label>lenght</label>
 					          <input class="form-control" name="txtLenght" placeholder="Please Enter Content"  required />
 					        </div> 
-                             <div class="form-group">
-                             <label>Giáo viên</label>
-                            <select class="form-control" name="txtUser_id" id="user_name">
-                                @foreach($id_user->$u)
-                                <option value="1">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                            </div> 
                             
                             <button type="submit" class="btn btn-primary">Thêm</button>
                             <button type="reset" class="btn btn-danger">Reset</button>

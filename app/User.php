@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function score(){
         return $this->hasOne('App\Score','id_user','id');
     }
+      public function course(){
+        return $this->hasMany('App\Course', 'id_user', 'id');
+    }
+
 }

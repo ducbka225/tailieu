@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('teacher.master')
 @section('content')
 <div id="wrapper">
            
@@ -13,6 +13,7 @@
                             <div class="panel">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Danh sách bài học</h3>
+                                        <h4 class="panel-content"><a href="teacher/addpost/{{$course_id}}" >Thêm bài học</a></h4>
                                     </div>
                                 <div class="panel-body">
                     <!-- /.col-lg-12 -->
@@ -35,7 +36,7 @@
                                 <td>{{$lp->subcontent}}</td>
                                 <td>{{$lp->content}}</td>
                                 <td class="center">
-                    
+                                	<a href="teacher/addpost/{{$course_id}}" title="Thêm bài học">
 							          <span class="glyphicon glyphicon-plus"></span>
 							        </a>
 							        <a href="deletepost/{{$lp->id}}" title="Xóa bài học"><i class="fa fa-trash-o  fa-fw"></i></a> 

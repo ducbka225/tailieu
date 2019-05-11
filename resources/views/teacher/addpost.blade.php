@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('teacher.master')
 @section('content')
 <!-- Page Content -->
 <div id="wrapper">
@@ -10,38 +10,31 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Course
+                        <h1 class="page-header">Post
                             <small>Add</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="postaddcourse" method="POST">
+                        <form action="postaddpost/{{$course_id}}" method="POST">
                         	{!!csrf_field()!!}
                             <div class="form-group">
-                                <label>Course Number</label>
-                                <input class="form-control" name="txtCourse_number" placeholder="Please Enter Number" required />
+                                <label>Lesson Title</label>
+                                <input class="form-control" name="txtTitle" placeholder="Please Enter Title" required />
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
-                                <input class="form-control" name="txtTitle" placeholder="Please Enter title" required />
+                                <label>avatar</label>
+                                <input class="form-control" name="txtAvatar" placeholder="Please Enter Avatar" required />
                             </div>
                             <div class="form-group">
-                                <label>Course Avatar</label>
-                                <input class="form-control" name="txtCourse_avatar" placeholder="Please Enter title" required />                                
+                                <label>Content</label>
+                                <textarea name="txtContent" class="form-control " id="editor2"></textarea>
+                                
                             </div>
                             <div class="form-group">
-					          <label>lenght</label>
-					          <input class="form-control" name="txtLenght" placeholder="Please Enter Content"  required />
+					          <label>SubContent</label>
+					          <input type="file" name="filename" value="upload">
 					        </div> 
-                             <div class="form-group">
-                             <label>Giáo viên</label>
-                            <select class="form-control" name="txtUser_id" id="user_name">
-                                @foreach($id_user->$u)
-                                <option value="1">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                            </div> 
                             
                             <button type="submit" class="btn btn-primary">Thêm</button>
                             <button type="reset" class="btn btn-danger">Reset</button>

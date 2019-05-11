@@ -106,48 +106,49 @@ class AdminController extends Controller
         return view('admin.allpost', compact('allpost'));
     }
 
-     public function getaddpost($course_id){
+   //   public function getaddpost($course_id){
 
-        return view('admin.addpost', compact('course_id'));
-    }
+   //      return view('admin.addpost', compact('course_id'));
+   //  }
 
-   public function addpost($course_id, Request $req){
+   // public function addpost($course_id, Request $req){
 
-        $post = new Post;
-        $post->id_course = $course_id;
-        $post->title = $req->txtTitle;
-        $post->avatar = $req->txtAvatar;
-        $post->subcontent = $req->txtSubcontent;
-        $post->content=$req->txtContent;
-        $post->save();
-        return redirect()->route('listpost', $course_id)->with('message', 'Thêm Thành Công');
-    }
+   //      $post = new Post;
+   //      $post->id_course = $course_id;
+   //      $post->title = $req->txtTitle;
+   //      $post->avatar = $req->txtAvatar;
+   //      $post->subcontent = $req->txtSubcontent;
+   //      $post->content=$req->txtContent;
+   //      $post->save();
+   //      return redirect()->route('listpost', $course_id)->with('message', 'Thêm Thành Công');
+   //  }
 
-    public function deletepost($post_id)
-    {
-      $post =Post::where('id',$post_id)->first();
-      $post->delete();
+   //  public function deletepost($post_id)
+   //  {
+   //    $post =Post::where('id',$post_id)->first();
+   //    $post->delete();
         
     
-     return redirect()->back();
-    }
+   //   return redirect()->back();
+   //  }
 
-    public function addcourse(){
+    // public function addcourse(){
 
-        return view('admin.addcourse');
-    }
+    //     return view('admin.addcourse');
+    // }
 
-    public function postaddcourse(Request $req){
+    // public function postaddcourse(Request $req){
 
-        $course = new Course;
+    //     $course = new Course;
        
-        $course->course_number = $req->txtCourse_number;
-        $course->title= $req->txtTitle;
-        $course->course_avatar = $req->txtCourse_avatar;
-        $course->lenght=$req->txtLenght;
-        $course->save();
-        return redirect()->route('listcourse')->with('message', 'Thêm Thành Công');
-    }
+    //     $course->course_number = $req->txtCourse_number;
+    //     $course->title= $req->txtTitle;
+    //     $course->course_avatar = $req->txtCourse_avatar;
+    //     $course->lenght=$req->txtLenght;
+    //     $course->id_user=Auth::User()->id;
+    //     $course->save();
+    //     return redirect()->route('listcourse',compact('course','id_user'))->with('message', 'Thêm Thành Công');
+    // }
 
     //all test
     public function listtest($course_id){
@@ -155,40 +156,40 @@ class AdminController extends Controller
         return view('admin.listtest', compact('listtest','course_id'));
     }
 
-    public function getaddtest($course_id){
+    // public function getaddtest($course_id){
 
-        return view('admin.addtest', compact('course_id'));
-    }
-     public function postaddtest($course_id, Request $req){
+    //     return view('admin.addtest', compact('course_id'));
+    // }
+    //  public function postaddtest($course_id, Request $req){
 
-        $test = new Test;
-        $test->id_user = Auth::user()->id;
-        $test->id_course = $course_id;
-        $test->content = $req->txtContent;
-        $test->a = $req->txtA;
-        $test->b = $req->txtB;
-        $test->c = $req->txtC;
-        $test->d = $req->txtD;
-        $test->true = $req->txtTrue;
-        $test->save();
-        return redirect()->route('listtest',compact('course_id'))->with('message', 'Thêm Thành Công');
-    }
+    //     $test = new Test;
+    //     $test->id_user = Auth::user()->id;
+    //     $test->id_course = $course_id;
+    //     $test->content = $req->txtContent;
+    //     $test->a = $req->txtA;
+    //     $test->b = $req->txtB;
+    //     $test->c = $req->txtC;
+    //     $test->d = $req->txtD;
+    //     $test->true = $req->txtTrue;
+    //     $test->save();
+    //     return redirect()->route('listtest',compact('course_id'))->with('message', 'Thêm Thành Công');
+    // }
 
     public function alltest()
     {
         $alltest=Test::all();
         return view('admin.alltest',compact('alltest'));
     }
-    public function deletetest($test_id)
-    {
-        $test =Test::where('id',$test_id)->first();
-        $test->delete();
-        return redirect()->back();
-    }
+    // public function deletetest($test_id)
+    // {
+    //     $test =Test::where('id',$test_id)->first();
+    //     $test->delete();
+    //     return redirect()->back();
+    // }
 
-    public function listresult($test_id)
-    {
-        $listresult=Test_result::where('id_test',$test_id)->get();
-        return view('admin.listresult',compact('listresult','test_id'));
-    }
+    // public function listresult($test_id)
+    // {
+    //     $listresult=Test_result::where('id_test',$test_id)->get();
+    //     return view('admin.listresult',compact('listresult','test_id'));
+    // }
 }
